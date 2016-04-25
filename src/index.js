@@ -6,6 +6,7 @@ import { apiKey } from '../config.js';
 
 import SearchBar from './components/SearchBar';
 import VideoList from './components/videoList';
+import VideoDetail from './components/VideoDetail';
 
 
 class App extends Component {
@@ -35,7 +36,9 @@ class App extends Component {
     return (
       <div>
         <SearchBar onSearchTermChange = {videoSearch}/>
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
+          onVideoSelect = {selectedVideo => this.setState({selectedVideo})}
           videos={this.state.videos}
         />
       </div>
